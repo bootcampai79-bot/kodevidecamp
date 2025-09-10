@@ -1,7 +1,12 @@
 // FAQ Page JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    initFAQSystem();
+    try {
+        initFAQSystem();
+    } catch (error) {
+        console.error('Error initializing FAQ system:', error);
+        showNotification('시스템 초기화 중 오류가 발생했습니다.', 'error');
+    }
 });
 
 function initFAQSystem() {
@@ -99,14 +104,24 @@ function clearFAQForm() {
 
 // FAQ Storage
 function saveFAQ(faq) {
-    const faqs = getFAQs();
-    faqs.unshift(faq); // Add to beginning
-    localStorage.setItem('kodevidecamp_faqs', JSON.stringify(faqs));
+    try {
+        const faqs = getFAQs();
+        faqs.unshift(faq); // Add to beginning
+        localStorage.setItem('kodevidecamp_faqs', JSON.stringify(faqs));
+    } catch (error) {
+        console.error('Error saving FAQ:', error);
+        showNotification('FAQ 저장 중 오류가 발생했습니다.', 'error');
+    }
 }
 
 function getFAQs() {
-    const stored = localStorage.getItem('kodevidecamp_faqs');
-    return stored ? JSON.parse(stored) : getDefaultFAQs();
+    try {
+        const stored = localStorage.getItem('kodevidecamp_faqs');
+        return stored ? JSON.parse(stored) : getDefaultFAQs();
+    } catch (error) {
+        console.error('Error loading FAQs:', error);
+        return getDefaultFAQs();
+    }
 }
 
 function getDefaultFAQs() {

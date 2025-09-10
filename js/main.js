@@ -1,11 +1,15 @@
 // Main JavaScript for KodeVideCamp
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    initThemeToggle();
-    initMobileMenu();
-    initScrollEffects();
-    initAnimations();
+    try {
+        // Initialize all components
+        initThemeToggle();
+        initMobileMenu();
+        initScrollEffects();
+        initAnimations();
+    } catch (error) {
+        console.error('Error initializing main components:', error);
+    }
 });
 
 // Theme Toggle Functionality

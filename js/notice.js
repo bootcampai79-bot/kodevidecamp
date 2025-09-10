@@ -1,7 +1,12 @@
 // Notice Page JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    initNoticeSystem();
+    try {
+        initNoticeSystem();
+    } catch (error) {
+        console.error('Error initializing notice system:', error);
+        showNotification('시스템 초기화 중 오류가 발생했습니다.', 'error');
+    }
 });
 
 function initNoticeSystem() {
@@ -114,7 +119,15 @@ function processFiles(files) {
     validFiles.forEach(file => {
         const reader = new FileReader();
         reader.onload = function(e) {
-            createPreviewItem(e.target.result, file.name);
+            try {
+                createPreviewItem(e.target.result, file.name);
+            } catch (error) {
+                console.error('Error creating preview:', error);
+                showNotification('이미지 미리보기 생성 중 오류가 발생했습니다.', 'error');
+            }
+        };
+        reader.onerror = function() {
+            showNotification('파일 읽기 중 오류가 발생했습니다.', 'error');
         };
         reader.readAsDataURL(file);
     });
@@ -190,14 +203,24 @@ function clearNoticeForm() {
 
 // Notice Storage
 function saveNotice(notice) {
-    const notices = getNotices();
-    notices.unshift(notice); // Add to beginning
-    localStorage.setItem('kodevidecamp_notices', JSON.stringify(notices));
+    try {
+        const notices = getNotices();
+        notices.unshift(notice); // Add to beginning
+        localStorage.setItem('kodevidecamp_notices', JSON.stringify(notices));
+    } catch (error) {
+        console.error('Error saving notice:', error);
+        showNotification('공지사항 저장 중 오류가 발생했습니다.', 'error');
+    }
 }
 
 function getNotices() {
-    const stored = localStorage.getItem('kodevidecamp_notices');
-    return stored ? JSON.parse(stored) : getDefaultNotices();
+    try {
+        const stored = localStorage.getItem('kodevidecamp_notices');
+        return stored ? JSON.parse(stored) : getDefaultNotices();
+    } catch (error) {
+        console.error('Error loading notices:', error);
+        return getDefaultNotices();
+    }
 }
 
 function getDefaultNotices() {
