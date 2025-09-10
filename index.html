@@ -58,11 +58,11 @@
                 <div class="hero-visual">
                 <div class="code-animation">
                     <div class="code-line comment">
-                        <span class="comment">// AI와 함께하는 해커톤</span>
+                        <span class="comment">// 사람이 조율하고 AI가 개발하는 해커톤</span>
                     </div>
                     <div class="code-line">
                         <span class="keyword">class</span>
-                        <span class="class-name">AITeamCollaboration</span>
+                        <span class="class-name">HumanAIOrchestration</span>
                         <span class="bracket">{</span>
                     </div>
                     <div class="code-line indent">
@@ -72,43 +72,68 @@
                     </div>
                     <div class="code-line double-indent">
                         <span class="keyword">this</span>
-                        <span class="property">.human</span>
+                        <span class="property">.conductor</span>
                         <span class="operator">=</span>
-                        <span class="string">'창의적 아이디어'</span>
+                        <span class="string">'Human Director'</span>
                         <span class="semicolon">;</span>
                     </div>
                     <div class="code-line double-indent">
                         <span class="keyword">this</span>
                         <span class="property">.ai</span>
                         <span class="operator">=</span>
-                        <span class="string">'지능형 분석'</span>
-                        <span class="semicolon">;</span>
+                        <span class="bracket">{</span>
+                    </div>
+                    <div class="code-line triple-indent">
+                        <span class="property">ideation</span>
+                        <span class="operator">:</span>
+                        <span class="string">'아이디어 생성'</span>
+                        <span class="comma">,</span>
+                    </div>
+                    <div class="code-line triple-indent">
+                        <span class="property">analysis</span>
+                        <span class="operator">:</span>
+                        <span class="string">'데이터 분석'</span>
+                        <span class="comma">,</span>
+                    </div>
+                    <div class="code-line triple-indent">
+                        <span class="property">design</span>
+                        <span class="operator">:</span>
+                        <span class="string">'시스템 설계'</span>
+                        <span class="comma">,</span>
+                    </div>
+                    <div class="code-line triple-indent">
+                        <span class="property">coding</span>
+                        <span class="operator">:</span>
+                        <span class="string">'자동 개발'</span>
+                        <span class="comma">,</span>
+                    </div>
+                    <div class="code-line triple-indent">
+                        <span class="property">deploy</span>
+                        <span class="operator">:</span>
+                        <span class="string">'배포 실행'</span>
                     </div>
                     <div class="code-line double-indent">
-                        <span class="keyword">this</span>
-                        <span class="property">.synergy</span>
-                        <span class="operator">=</span>
-                        <span class="string">'무한한 가능성'</span>
+                        <span class="bracket">}</span>
                         <span class="semicolon">;</span>
                     </div>
                     <div class="code-line indent">
                         <span class="bracket">}</span>
                     </div>
                     <div class="code-line indent">
-                        <span class="function-name">innovate</span>
+                        <span class="function-name">orchestrate</span>
                         <span class="bracket">()</span>
                         <span class="bracket">{</span>
                     </div>
                     <div class="code-line double-indent">
                         <span class="keyword">return</span>
                         <span class="keyword">this</span>
-                        <span class="property">.human</span>
-                        <span class="operator">*</span>
+                        <span class="property">.conductor</span>
+                        <span class="operator">.</span>
+                        <span class="function-name">direct</span>
+                        <span class="bracket">(</span>
                         <span class="keyword">this</span>
                         <span class="property">.ai</span>
-                        <span class="operator">=</span>
-                        <span class="keyword">this</span>
-                        <span class="property">.synergy</span>
+                        <span class="bracket">)</span>
                         <span class="semicolon">;</span>
                     </div>
                     <div class="code-line indent">

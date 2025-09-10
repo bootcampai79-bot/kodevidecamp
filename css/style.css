@@ -300,6 +300,10 @@ body {
     padding-left: 40px;
 }
 
+.code-line.triple-indent {
+    padding-left: 60px;
+}
+
 .code-line.comment {
     opacity: 0.7;
 }
@@ -313,6 +317,7 @@ body {
 .operator { color: #ff79c6; }
 .bracket { color: #f8f8f2; }
 .semicolon { color: #6272a4; }
+.comma { color: #f8f8f2; }
 .comment { color: #6272a4; font-style: italic; }
 
 @keyframes typewriter {
