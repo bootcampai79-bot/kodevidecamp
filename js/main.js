@@ -1,4 +1,4 @@
-// Main JavaScript for Kode:VideZam 2025
+// Main JavaScript for Kode:videZAM 2025
 
 document.addEventListener('DOMContentLoaded', function() {
     try {
