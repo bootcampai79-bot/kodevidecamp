@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자주 묻는 질문 - KodeVideCamp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/faq.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <i class="fas fa-code"></i>
+                    KodeVideCamp
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">홈</a>
+                <a href="notice.html" class="nav-link">공지사항</a>
+                <a href="faq.html" class="nav-link active">F&Q</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="fas fa-question-circle"></i>
+                    자주 묻는 질문
+                </h1>
+                <p class="page-description">
+                    KodeVideCamp에 대해 궁금한 점들을 확인해보세요
+                </p>
+            </div>
+
+            <!-- FAQ Controls -->
+            <div class="faq-controls">
+                <div class="search-section">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="faqSearch" placeholder="질문을 검색해보세요...">
+                    </div>
+                </div>
+                
+                <div class="category-filter">
+                    <button class="category-btn active" data-category="all">
+                        <i class="fas fa-th"></i>
+                        전체
+                    </button>
+                    <button class="category-btn" data-category="course">
+                        <i class="fas fa-graduation-cap"></i>
+                        강의
+                    </button>
+                    <button class="category-btn" data-category="payment">
+                        <i class="fas fa-credit-card"></i>
+                        결제
+                    </button>
+                    <button class="category-btn" data-category="technical">
+                        <i class="fas fa-cog"></i>
+                        기술
+                    </button>
+                    <button class="category-btn" data-category="general">
+                        <i class="fas fa-info-circle"></i>
+                        일반
+                    </button>
+                </div>
+            </div>
+
+            <!-- Admin Panel -->
+            <div class="admin-panel" id="faqAdminPanel">
+                <div class="admin-header">
+                    <h3>
+                        <i class="fas fa-cog"></i>
+                        FAQ 관리
+                    </h3>
+                    <button class="admin-toggle" id="faqAdminToggle">
+                        <i class="fas fa-key"></i>
+                        관리자 모드
+                    </button>
+                </div>
+                
+                <div class="admin-content" id="faqAdminContent">
+                    <div class="faq-form-section">
+                        <h4>새 FAQ 추가</h4>
+                        <form class="faq-form" id="faqForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="faqCategory">카테고리</label>
+                                    <select id="faqCategory" required>
+                                        <option value="">카테고리 선택</option>
+                                        <option value="course">강의</option>
+                                        <option value="payment">결제</option>
+                                        <option value="technical">기술</option>
+                                        <option value="general">일반</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="faqPriority">우선순위</label>
+                                    <select id="faqPriority">
+                                        <option value="normal">보통</option>
+                                        <option value="high">높음</option>
+                                        <option value="urgent">긴급</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="faqQuestion">질문</label>
+                                <input type="text" id="faqQuestion" placeholder="자주 묻는 질문을 입력하세요" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="faqAnswer">답변</label>
+                                <textarea id="faqAnswer" placeholder="질문에 대한 상세한 답변을 입력하세요" rows="5" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="faqTags">태그 (쉼표로 구분)</label>
+                                <input type="text" id="faqTags" placeholder="예: 강의, 수강료, 환불">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-plus"></i>
+                                    FAQ 추가
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="clearFaqForm">
+                                    <i class="fas fa-times"></i>
+                                    초기화
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ List -->
+            <div class="faq-section">
+                <div class="faq-header">
+                    <h2>질문과 답변</h2>
+                    <div class="faq-stats">
+                        <span class="stat-item">
+                            <i class="fas fa-question"></i>
+                            총 <span id="totalFaqs">0</span>개 질문
+                        </span>
+                        <span class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <span id="visibleFaqs">0</span>개 표시
+                        </span>
+                    </div>
+                </div>
+
+                <div class="faq-list" id="faqList">
+                    <!-- FAQ items will be loaded here -->
+                </div>
+
+                <div class="empty-state" id="faqEmptyState">
+                    <div class="empty-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>검색 결과가 없습니다</h3>
+                    <p>다른 키워드로 검색하거나 카테고리를 변경해보세요</p>
+                </div>
+            </div>
+
+            <!-- Quick Help -->
+            <div class="quick-help">
+                <h3>
+                    <i class="fas fa-lightbulb"></i>
+                    빠른 도움말
+                </h3>
+                <div class="help-grid">
+                    <div class="help-item">
+                        <i class="fas fa-phone"></i>
+                        <h4>전화 문의</h4>
+                        <p>02-1234-5678</p>
+                        <small>평일 09:00 - 18:00</small>
+                    </div>
+                    <div class="help-item">
+                        <i class="fas fa-envelope"></i>
+                        <h4>이메일 문의</h4>
+                        <p>support@kodevidecamp.com</p>
+                        <small>24시간 접수</small>
+                    </div>
+                    <div class="help-item">
+                        <i class="fas fa-comments"></i>
+                        <h4>실시간 채팅</h4>
+                        <p>온라인 상담</p>
+                        <small>평일 09:00 - 22:00</small>
+                    </div>
+                    <div class="help-item">
+                        <i class="fas fa-book"></i>
+                        <h4>학습 가이드</h4>
+                        <p>학습 방법 안내</p>
+                        <small>언제든지 이용 가능</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    KodeVideCamp
+                </div>
+                <div class="footer-links">
+                    <a href="notice.html">공지사항</a>
+                    <a href="faq.html">F&Q</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KodeVideCamp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/faq.js"></script>
+</body>
+</html>

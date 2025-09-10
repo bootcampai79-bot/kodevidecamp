@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodeVideCamp - 코딩 교육 캠프</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <i class="fas fa-code"></i>
+                    KodeVideCamp
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">홈</a>
+                <a href="notice.html" class="nav-link">공지사항</a>
+                <a href="faq.html" class="nav-link">F&Q</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">KodeVideCamp</span>
+                </h1>
+                <p class="hero-subtitle">
+                    코딩의 새로운 경험을 시작하세요
+                </p>
+                <p class="hero-description">
+                    체계적인 커리큘럼과 실무 중심의 프로젝트로<br>
+                    개발자로서의 꿈을 현실로 만들어보세요
+                </p>
+                <div class="hero-buttons">
+                    <a href="notice.html" class="btn btn-primary">
+                        <i class="fas fa-bell"></i>
+                        공지사항 보기
+                    </a>
+                    <a href="faq.html" class="btn btn-secondary">
+                        <i class="fas fa-question-circle"></i>
+                        자주 묻는 질문
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-animation">
+                    <div class="code-line">
+                        <span class="keyword">function</span>
+                        <span class="function-name">startCoding</span>
+                        <span class="bracket">()</span>
+                        <span class="bracket">{</span>
+                    </div>
+                    <div class="code-line indent">
+                        <span class="keyword">const</span>
+                        <span class="variable">dream</span>
+                        <span class="operator">=</span>
+                        <span class="string">'developer'</span>
+                        <span class="semicolon">;</span>
+                    </div>
+                    <div class="code-line indent">
+                        <span class="keyword">return</span>
+                        <span class="variable">dream</span>
+                        <span class="operator">+</span>
+                        <span class="string">'reality'</span>
+                        <span class="semicolon">;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="bracket">}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">왜 KodeVideCamp인가요?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>고품질 영상 강의</h3>
+                        <p>전문 강사진의 체계적이고 이해하기 쉬운 영상 강의로 학습하세요</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>실무 프로젝트</h3>
+                        <p>실제 업무에서 사용하는 기술과 도구로 포트폴리오를 완성하세요</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>커뮤니티 지원</h3>
+                        <p>동료 학습자들과 함께 성장하고 서로 도움을 주고받으세요</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">수강생</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">프로젝트</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">만족도</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">지원</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    KodeVideCamp
+                </div>
+                <div class="footer-links">
+                    <a href="notice.html">공지사항</a>
+                    <a href="faq.html">F&Q</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KodeVideCamp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
