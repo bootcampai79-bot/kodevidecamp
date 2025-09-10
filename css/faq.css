@@ -370,6 +370,11 @@
     text-transform: uppercase;
 }
 
+.category-badge.hackathon {
+    background: rgba(255, 193, 7, 0.1);
+    color: #FFC107;
+}
+
 .category-badge.course {
     background: rgba(76, 175, 80, 0.1);
     color: #4CAF50;

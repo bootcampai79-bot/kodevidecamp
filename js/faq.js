@@ -164,7 +164,7 @@ function getDefaultFAQs() {
             category: 'course',
             priority: 'normal',
             question: '완전 초보자도 수강할 수 있나요?',
-            answer: '네, 물론입니다! KodeVideCamp는 완전 초보자를 위한 기초 과정부터 고급 과정까지 체계적으로 구성되어 있습니다. 프로그래밍 경험이 전혀 없어도 차근차근 따라할 수 있도록 설계되었으며, 기초 개념부터 실무 프로젝트까지 단계별로 학습할 수 있습니다.',
+            answer: '네, 물론입니다! Kode:VideZam 2025는 KT 직원 누구나 참여할 수 있는 해커톤입니다. 개발 경험이 없어도 아이디어와 열정만 있다면 충분합니다. 다양한 직군의 동료들과 팀을 이루어 함께 프로젝트를 진행할 수 있습니다.',
             tags: ['초보자', '기초과정', '입문', '단계별'],
             helpful: { yes: 20, no: 1 },
             date: '2025-01-07',
@@ -388,6 +388,7 @@ function formatAnswer(answer) {
 
 function getCategoryIcon(category) {
     const icons = {
+        hackathon: '<i class="fas fa-trophy"></i>',
         course: '<i class="fas fa-graduation-cap"></i>',
         payment: '<i class="fas fa-credit-card"></i>',
         technical: '<i class="fas fa-cog"></i>',
@@ -398,6 +399,7 @@ function getCategoryIcon(category) {
 
 function getCategoryName(category) {
     const names = {
+        hackathon: '해커톤',
         course: '강의',
         payment: '결제',
         technical: '기술',

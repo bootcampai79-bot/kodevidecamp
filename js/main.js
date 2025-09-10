@@ -1,4 +1,4 @@
-// Main JavaScript for KodeVideCamp
+// Main JavaScript for Kode:VideZam 2025
 
 document.addEventListener('DOMContentLoaded', function() {
     try {
