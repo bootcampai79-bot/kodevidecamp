@@ -161,13 +161,20 @@ body {
 .hero-text {
     padding: 120px 20px 60px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    text-align: center;
     color: white;
 }
 
-.hero-text .container {
-    max-width: 800px;
+.hero-text-content {
+    max-width: 1200px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.text-section {
+    text-align: left;
 }
 
 /* Hero Background Image Section */
@@ -458,6 +465,16 @@ body {
     
     .nav-menu.active {
         left: 0;
+    }
+    
+    .hero-text-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .text-section {
+        text-align: center;
     }
     
     .hero-text .hero-title {
