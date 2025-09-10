@@ -296,13 +296,24 @@ body {
     padding-left: 20px;
 }
 
+.code-line.double-indent {
+    padding-left: 40px;
+}
+
+.code-line.comment {
+    opacity: 0.7;
+}
+
 .keyword { color: #ff79c6; }
 .function-name { color: #50fa7b; }
+.class-name { color: #8be9fd; font-weight: bold; }
+.property { color: #50fa7b; }
 .variable { color: #8be9fd; }
 .string { color: #f1fa8c; }
 .operator { color: #ff79c6; }
 .bracket { color: #f8f8f2; }
 .semicolon { color: #6272a4; }
+.comment { color: #6272a4; font-style: italic; }
 
 @keyframes typewriter {
     from { opacity: 0; transform: translateX(-10px); }
