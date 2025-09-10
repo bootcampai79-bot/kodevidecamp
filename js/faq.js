@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initFAQSystem() {
     // Initialize all components
-    initAdminPanel();
     initSearch();
     initCategoryFilter();
     initFAQList();
@@ -21,86 +20,6 @@ function initFAQSystem() {
     updateStats();
 }
 
-// Admin Panel Management
-function initAdminPanel() {
-    const adminToggle = document.getElementById('faqAdminToggle');
-    const adminContent = document.getElementById('faqAdminContent');
-    
-    if (adminToggle && adminContent) {
-        adminToggle.addEventListener('click', function() {
-            const isActive = adminContent.classList.contains('active');
-            
-            if (isActive) {
-                adminContent.classList.remove('active');
-                adminToggle.innerHTML = '<i class="fas fa-key"></i> 관리자 모드';
-            } else {
-                adminContent.classList.add('active');
-                adminToggle.innerHTML = '<i class="fas fa-times"></i> 닫기';
-            }
-        });
-    }
-    
-    // Form submission
-    const faqForm = document.getElementById('faqForm');
-    if (faqForm) {
-        faqForm.addEventListener('submit', handleFAQSubmit);
-    }
-    
-    // Clear form
-    const clearForm = document.getElementById('clearFaqForm');
-    if (clearForm) {
-        clearForm.addEventListener('click', clearFAQForm);
-    }
-}
-
-// FAQ Form Handling
-function handleFAQSubmit(e) {
-    e.preventDefault();
-    
-    const category = document.getElementById('faqCategory').value;
-    const priority = document.getElementById('faqPriority').value;
-    const question = document.getElementById('faqQuestion').value.trim();
-    const answer = document.getElementById('faqAnswer').value.trim();
-    const tags = document.getElementById('faqTags').value.trim();
-    
-    if (!category || !question || !answer) {
-        showNotification('모든 필수 항목을 입력해주세요.', 'error');
-        return;
-    }
-    
-    // Create FAQ object
-    const faq = {
-        id: Date.now(),
-        category: category,
-        priority: priority,
-        question: question,
-        answer: answer,
-        tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
-        helpful: { yes: 0, no: 0 },
-        date: new Date().toLocaleDateString('ko-KR'),
-        timestamp: Date.now()
-    };
-    
-    // Save FAQ
-    saveFAQ(faq);
-    
-    // Clear form
-    clearFAQForm();
-    
-    // Reload FAQs
-    loadFAQs();
-    updateStats();
-    
-    showNotification('FAQ가 성공적으로 추가되었습니다.', 'success');
-}
-
-function clearFAQForm() {
-    document.getElementById('faqCategory').value = '';
-    document.getElementById('faqPriority').value = 'normal';
-    document.getElementById('faqQuestion').value = '';
-    document.getElementById('faqAnswer').value = '';
-    document.getElementById('faqTags').value = '';
-}
 
 // FAQ Storage
 function saveFAQ(faq) {
@@ -217,14 +136,6 @@ function getDefaultFAQs() {
     ];
 }
 
-function deleteFAQ(id) {
-    const faqs = getFAQs();
-    const filteredFAQs = faqs.filter(faq => faq.id !== id);
-    localStorage.setItem('kodevidecamp_faqs', JSON.stringify(filteredFAQs));
-    loadFAQs();
-    updateStats();
-    showNotification('FAQ가 삭제되었습니다.', 'success');
-}
 
 // Search Functionality
 function initSearch() {
@@ -301,17 +212,6 @@ function initFAQList() {
             markHelpful(faqId, isHelpful);
         }
         
-        // Handle admin actions
-        if (e.target.closest('.admin-btn')) {
-            const btn = e.target.closest('.admin-btn');
-            const faqId = parseInt(btn.closest('.faq-item').dataset.id);
-            
-            if (btn.classList.contains('delete')) {
-                if (confirm('정말로 이 FAQ를 삭제하시겠습니까?')) {
-                    deleteFAQ(faqId);
-                }
-            }
-        }
     });
 }
 
@@ -388,14 +288,6 @@ function displayFAQs(faqs) {
                                 아니오 (${faq.helpful.no})
                             </button>
                         </div>
-                    </div>
-                    <div class="admin-actions">
-                        <button class="admin-btn edit" title="수정">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="admin-btn delete" title="삭제">
-                            <i class="fas fa-trash"></i>
-                        </button>
                     </div>
                 </div>
             </div>

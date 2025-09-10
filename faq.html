@@ -64,10 +64,6 @@
                         <i class="fas fa-trophy"></i>
                         해커톤
                     </button>
-                    <button class="category-btn" data-category="payment">
-                        <i class="fas fa-credit-card"></i>
-                        결제
-                    </button>
                     <button class="category-btn" data-category="technical">
                         <i class="fas fa-cog"></i>
                         기술
@@ -79,74 +75,6 @@
                 </div>
             </div>
 
-            <!-- Admin Panel -->
-            <div class="admin-panel" id="faqAdminPanel">
-                <div class="admin-header">
-                    <h3>
-                        <i class="fas fa-cog"></i>
-                        FAQ 관리
-                    </h3>
-                    <button class="admin-toggle" id="faqAdminToggle">
-                        <i class="fas fa-key"></i>
-                        관리자 모드
-                    </button>
-                </div>
-                
-                <div class="admin-content" id="faqAdminContent">
-                    <div class="faq-form-section">
-                        <h4>새 FAQ 추가</h4>
-                        <form class="faq-form" id="faqForm">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="faqCategory">카테고리</label>
-                                    <select id="faqCategory" required>
-                                        <option value="">카테고리 선택</option>
-                                        <option value="hackathon">해커톤</option>
-                                        <option value="payment">결제</option>
-                                        <option value="technical">기술</option>
-                                        <option value="general">일반</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="faqPriority">우선순위</label>
-                                    <select id="faqPriority">
-                                        <option value="normal">보통</option>
-                                        <option value="high">높음</option>
-                                        <option value="urgent">긴급</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="faqQuestion">질문</label>
-                                <input type="text" id="faqQuestion" placeholder="자주 묻는 질문을 입력하세요" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="faqAnswer">답변</label>
-                                <textarea id="faqAnswer" placeholder="질문에 대한 상세한 답변을 입력하세요" rows="5" required></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="faqTags">태그 (쉼표로 구분)</label>
-                                <input type="text" id="faqTags" placeholder="예: 강의, 수강료, 환불">
-                            </div>
-                            
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-plus"></i>
-                                    FAQ 추가
-                                </button>
-                                <button type="button" class="btn btn-secondary" id="clearFaqForm">
-                                    <i class="fas fa-times"></i>
-                                    초기화
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
 
             <!-- FAQ List -->
             <div class="faq-section">
