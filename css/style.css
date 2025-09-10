@@ -184,7 +184,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 50px 20px;
-    background: url('../images/Kode:viveJAM 포스터.png') center/contain no-repeat;
+    background: url('../images/Kode:viveJAM 포스터.png') center/150% no-repeat;
     background-color: #f8f9fa;
     position: relative;
 }
